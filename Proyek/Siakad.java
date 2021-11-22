@@ -1,21 +1,21 @@
 import java.util.Scanner; 
     public class Siakad {
-        private String[] nama = new String [1000];
-        private String[] nim = new String [1000];
-        private double[] ipk = new double [1000];
+        Mahasiswa[] mahasiswa = new Mahasiswa[1000];
         private int jumlahData = 0;
 
         public static void main(String[] args) {
             System.out.println();
             Siakad siakad = new Siakad();
-            int menu = 0; // deklarasi menu
+            int menu = 0;
             while (menu!=5) { //menampilkan menu
                 menu = tampilanMenu(); 
-                if (menu == 1) { // lihat data
+                if (menu == 1) {
                     siakad.lihatData();
                 } else if (menu == 2) {
                     siakad.tambahData();
-                } else if (menu == 3 ) {
+                } else if (menu == 3) {
+                    siakad.cariData();
+                } else if (menu == 4) {
                     siakad.ratarataIpk();
                 }
             }
@@ -27,8 +27,8 @@ import java.util.Scanner;
             System.out.println("Menu : ");
             System.out.println("1. Lihat Data");
             System.out.println("2. Tambah Data");
-            System.out.println("3. Rata-rata IPK");
-            System.out.println("4. Edit Data");
+            System.out.println("3. Cari Data");
+            System.out.println("4. Rerata IPK");
             System.out.println("5. Keluar");
             System.out.print("Silahkan pilih menu = ");
             Scanner scanMenu = new Scanner (System.in);
@@ -39,41 +39,46 @@ import java.util.Scanner;
         private void lihatData() {
             if (jumlahData == 0) {
                 System.out.println();
-                System.out.println("Data belum ter-input");
+                System.out.println("Belum ada data");
             } else {
                 System.out.println();
-                for (int i = 1; i < jumlahData; i++) {
-                    System.out.println("Data mahasiswa " + i);
-                    System.out.println("Nomor Induk Mahasiswa = " + nim[i]);
-                    System.out.println("Nama Lengkap Mahasiswa = " + nama[i]);
-                    System.out.println("IPK Mahasiswa = " + ipk[i]);
-                    System.out.println();
-                    ratarataIpk();
-                    System.out.println();
+                for (int i=1; i<jumlahData; i++) {
+                    mahasiswa[i].getDetail();
                 }
             }
         }
 
         private void tambahData() {
-            Scanner tambah = new Scanner (System.in);
+            Scanner scan = new Scanner (System.in);
             System.out.println();
-            System.out.print("Masukkan 11 digit NIM = ");
-            nim[jumlahData] = tambah.nextLine();
+            System.out.print("Masukkan NIM mahasiswa = ");
+            String nim = scan.nextLine();
             System.out.print("Masukkan nama lengkap mahasiswa = ");
-            nama[jumlahData] = tambah.nextLine();
+            String nama = scan.nextLine();
             System.out.print("Masukkan IPK mahasiswa dengan format dua angka dibelakang koma (contoh = 3.98) = ");
-            ipk[jumlahData] = tambah.nextDouble();
+            double ipk = scan.nextDouble();
+            System.out.print("Masukkan tinggi badan mahasiswa = ");
+            double tinggi = scan.nextDouble();
+            Mahasiswa inputMahasiswa = new Mahasiswa (nim, nama, ipk);
+            inputMahasiswa.setTinggiBadan(tinggi);
+            mahasiswa[jumlahData] = inputMahasiswa;
             jumlahData++; // ngasih tau jumlah data naik terus
             lihatData();
+        }
+
+        public void cariData() {
+            Scanner scan = new Scanner(System.in);
+            System.out.print("Masukkan NIM Mahasiswa yang akan dicari = ");
+            String nim = scan.nextLine();
         }
         
         public void ratarataIpk() {
             double totalIpk = 0.0;
-            for (int i =0; i < jumlahData; i ++) {
-                totalIpk += ipk[i];
+            for (int i=0; i<jumlahData; i++) {
+                totalIpk += mahasiswa[i].getIPK();
             }
             double ratarata = totalIpk / jumlahData;
 
-            System.out.println("Rata-rata IPK :" + ratarata);
+            System.out.println("Rata-rata IPK mahasiswa = " + ratarata);
         }
     }
