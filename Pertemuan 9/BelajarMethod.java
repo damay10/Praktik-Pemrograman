@@ -5,9 +5,9 @@ public class BelajarMethod {
         teksDenganParameter("Damay");
         String teks = tambahKata("Kalimat awal");
         System.out.println(teks);
-        String teksDuaParameter = tambahKataDuaParameter("Kalimat awal");
+        String teksDuaParameter = tambahKataDuaParameter("Kalimat awal", "kalimat kedua");
     }
-    public static void mmenampilkanTeks() {
+    public static void menampilkanTeks() {
         System.out.println("Halo");
         System.out.println("Selamat pagi");
         System.out.println("Saya sedang");
@@ -23,8 +23,8 @@ public class BelajarMethod {
         String kalimat = "ini adalah kalimat tambahan" + kataAwal;
         return kalimat;
     }
-    public static String tambahKataDUaParameter(String katapertama, String kalimat) {
-        String kalimat = "ini adalah kalimat tambahan " + katapertama;
+    public static String tambahKataDuaParameter(String katapertama, String katakedua) {
+        String kalimat = "ini adalah kalimat tambahan " + katapertama + katakedua;
         return kalimat;
     }
 }
