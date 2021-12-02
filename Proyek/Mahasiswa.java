@@ -1,39 +1,40 @@
 public class Mahasiswa extends Manusia {
-   private String nim;
-   private String nama;
-   private double ipk;
-   
-   public Mahasiswa(String nim, String nama, double ipk) {
-       this.nim = nim;
-       this.nama = nama;
-       this.ipk = ipk;
-   }
+    private String nim;
+    private String nama;
+    private double ipk;
 
-   public void setNIM(String nim) {
-       this.nim = nim;
-   }
+    public Mahasiswa(String nim, String nama, double ipk) {
+        this.nim = nim;
+        this.nama = nama;
+        this.ipk = ipk;
+    }
 
-   public String getNIM() {
-       return this.nim;
-   }
+    public void setNIM(String nim) {
+        this.nim = nim;
+    }
 
-   public void setNama() {
-       this.nama = nama;
-   }
+    public String getNIM() {
+        return this.nim;
+    }
 
-   public String getNama() {
-       return this.nama;
-   }
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
 
-   public void setIPK(double ipk) {
-       this.ipk = ipk;
-   }
+    public String getNama() {
+        return this.nama;
+    }
 
-   public double getIPK() {
-       return this.ipk;
-   }
+    public void setIPK(double ipk) {
+        this.ipk = ipk;
+    }
 
-   public void getDetail() {
-       System.out.println(this.nim+" "+this.nama+" "+this.ipk);
-   }
+    public double getIPK() {
+        return this.ipk;
+    }
+
+    public void getDetail() {
+        System.out.println(this.nim+" "+this.nama+" "+this.ipk+" "+this.tinggiBadan);
+    }
+
 }
