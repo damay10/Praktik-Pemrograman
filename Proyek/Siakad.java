@@ -46,6 +46,7 @@ public class Siakad {
             System.out.println("Belum ada data");
         } else {
             System.out.println("Berikut data mahasiswa");
+            mahasiswa[0].getHeader();
             for (int i=0; i<jumlahData;i++) {
                 mahasiswa[i].getDetail();
             }
